@@ -26,7 +26,7 @@ export default function WhatsAppButton() {
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
             <span className="text-xs font-mono-tag font-bold text-white">
-              CONCIERGE ONLINE
+              WE ARE ONLINE
             </span>
           </div>
           <button

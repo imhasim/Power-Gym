@@ -2,14 +2,14 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Dumbbell, MapPin, Clock, Phone, Mail, ArrowRight, Check } from "lucide-react";
+import { Dumbbell, MapPin, Clock, ArrowRight, Check } from "lucide-react";
 import Button from "@/components/ui/Button";
-import { useBooking } from "@/context/BookingContext";
+import { useJoin } from "@/context/JoinContext";
 
 export default function Footer() {
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterSubscribed, setNewsletterSubscribed] = useState(false);
-  const { openJoinModal } = useBooking();
+  const { scrollToJoin } = useJoin();
 
   const handleNewsletter = (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,7 +39,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-white/60 text-sm leading-relaxed max-w-sm">
-              Engineering human force and physical sovereignty. A temple of Olympic iron, metabolic conditioning, and cold contrast recovery built for those who refuse average.
+              We help you build strength, stay active, and feel your best. Clean gym equipment, fun workouts, and friendly coaches ready to support you every day.
             </p>
 
             <div className="flex items-center gap-3 pt-2">
@@ -79,41 +79,41 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Navigation Links */}
+          {/* Quick Navigation Links */}
           <div className="space-y-3">
             <span className="font-mono-tag text-xs font-bold text-[#FFE600] tracking-widest">
               NAVIGATION
             </span>
             <ul className="space-y-2 text-sm text-white/60">
               <li>
-                <Link href="/programs" className="hover:text-white transition-colors">
-                  Programs & Training
-                </Link>
+                <a href="#about" className="hover:text-white transition-colors">
+                  About & Philosophy
+                </a>
               </li>
               <li>
-                <Link href="/trainers" className="hover:text-white transition-colors">
-                  Certified Master Coaches
-                </Link>
+                <a href="#programs" className="hover:text-white transition-colors">
+                  Training Programs
+                </a>
               </li>
               <li>
-                <Link href="/membership" className="hover:text-white transition-colors">
+                <a href="#plans" className="hover:text-white transition-colors">
                   Membership Plans
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/schedule" className="hover:text-white transition-colors">
-                  Weekly Class Timetable
-                </Link>
+                <a href="#trainers" className="hover:text-white transition-colors">
+                  Our Trainers
+                </a>
               </li>
               <li>
-                <Link href="/tools" className="hover:text-white transition-colors">
-                  BMI & Macro Calculator
-                </Link>
+                <a href="#bmi" className="hover:text-white transition-colors">
+                  BMI Calculator
+                </a>
               </li>
               <li>
-                <Link href="/transformations" className="hover:text-white transition-colors">
-                  Client Transformations
-                </Link>
+                <a href="#join" className="hover:text-white transition-colors">
+                  Join / 3-Day Pass
+                </a>
               </li>
             </ul>
           </div>
@@ -148,19 +148,19 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Newsletter / Free Pass */}
+          {/* Newsletter */}
           <div className="space-y-3">
             <span className="font-mono-tag text-xs font-bold text-[#FFE600] tracking-widest">
-              THE POWER DISPATCH
+              FREE WORKOUT TIPS
             </span>
             <p className="text-xs text-white/60">
-              Receive weekly science-backed training protocols, workout blueprints, and invitation-only seminars.
+              Get simple exercise tips, healthy meal ideas, and gym updates sent to your email each week.
             </p>
 
             {newsletterSubscribed ? (
               <div className="p-3 rounded-xl bg-[#FFE600]/10 border border-[#FFE600]/30 text-xs text-[#FFE600] flex items-center gap-2">
                 <Check size={16} />
-                <span>Subscribed! Check your inbox for the first protocol.</span>
+                <span>Subscribed! Check your inbox for your first workout tip.</span>
               </div>
             ) : (
               <form onSubmit={handleNewsletter} className="space-y-2">
@@ -186,10 +186,10 @@ export default function Footer() {
 
             <div className="pt-2">
               <button
-                onClick={() => openJoinModal()}
-                className="text-xs text-[#FFE600] hover:underline flex items-center gap-1 font-mono-tag"
+                onClick={() => scrollToJoin()}
+                className="text-xs text-[#FFE600] hover:underline flex items-center gap-1 font-mono-tag cursor-pointer"
               >
-                <span>[ CLAIM 3-DAY FREE TRIAL PASS ]</span>
+                <span>[ GET FREE 3-DAY PASS ]</span>
               </button>
             </div>
           </div>
@@ -199,15 +199,15 @@ export default function Footer() {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-white/40 gap-4">
           <p>© 2026 POWER GYM INC. ALL RIGHTS RESERVED.</p>
           <div className="flex items-center gap-6">
-            <Link href="/contact" className="hover:text-white transition-colors">
+            <a href="#about" className="hover:text-white transition-colors">
               Terms of Service
-            </Link>
-            <Link href="/contact" className="hover:text-white transition-colors">
+            </a>
+            <a href="#about" className="hover:text-white transition-colors">
               Privacy Policy
-            </Link>
-            <Link href="/contact" className="hover:text-white transition-colors">
-              Facility Safety Protocols
-            </Link>
+            </a>
+            <a href="#about" className="hover:text-white transition-colors">
+              Gym Rules & Safety
+            </a>
           </div>
         </div>
       </div>

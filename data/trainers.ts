@@ -19,65 +19,65 @@ export const trainersData: Trainer[] = [
   {
     id: "marcus-thorne",
     name: "Marcus Thorne",
-    role: "Head Performance Director & Hypertrophy Specialist",
+    role: "Head Fitness Coach",
     code: "[ COACH // 01 ]",
     experienceYears: 12,
-    credentials: ["CSCS (NSCA)", "B.Sc. Exercise Science", "Ex-Military Physical Training Instructor"],
-    specialties: ["Maximal Hypertrophy", "Powerlifting Biomechanics", "Contest Prep Conditioning"],
-    quote: "Discipline is the bridge between goals and raw physical dominance. There are no shortcuts.",
-    bio: "Marcus has conditioned over 400 national competitors and high-profile executives. With 12 years at the cutting edge of muscle architecture, his coaching focuses on meticulous rep mechanics and progressive volume load.",
+    credentials: ["Certified Fitness Director", "Sports Science Degree", "Safe Lifting Specialist"],
+    specialties: ["Strength Building", "Muscle Toning", "Safe Form for Beginners"],
+    quote: "Small daily habits create big changes over time. You just need to take the first step.",
+    bio: "Marcus has been coaching for over 12 years. He is patient, friendly, and focuses on helping you learn safe workout habits that last a lifetime.",
     image: "/images/trainer-marcus.jpg",
     stats: {
       clientsTransformed: 420,
-      personalBest: "310 kg Deadlift"
+      personalBest: "12 Years Experience"
     }
   },
   {
     id: "elena-rostova",
     name: "Elena Rostova",
-    role: "Lead Conditioning & Athletic Endurance Coach",
+    role: "Cardio & Stamina Coach",
     code: "[ COACH // 02 ]",
     experienceYears: 9,
-    credentials: ["CrossFit Level 3 Trainer", "Precision Nutrition Level 2", "USA Weightlifting L2"],
-    specialties: ["Lactate Threshold Training", "Battle Ropes Dynamics", "Kettlebell Ballistics"],
-    quote: "Your body can handle almost anything; it’s your mind that you have to convince.",
-    bio: "Former national track sprinter turned functional conditioning coach. Elena designs relentless conditioning protocols that sculpt lean muscle while exponentially increasing VO2 max and mental toughness.",
+    credentials: ["Certified Group Trainer", "Nutrition Coach", "Cardio Conditioning Specialist"],
+    specialties: ["Fat Burning Workouts", "Battle Ropes", "Daily Energy Boost"],
+    quote: "You are stronger than you think. Keep moving forward one day at a time.",
+    bio: "Elena brings great energy and encouragement to every class. She helps you burn calories, build endurance, and genuinely enjoy working out.",
     image: "/images/trainer-elena.jpg",
     stats: {
       clientsTransformed: 350,
-      personalBest: "18.5 min 5K & 120kg Clean"
+      personalBest: "9 Years Experience"
     }
   },
   {
     id: "david-vance",
-    name: "David 'Iron' Vance",
-    role: "Senior Strength Coach & Olympic Barbell Specialist",
+    name: "David Vance",
+    role: "Senior Strength Trainer",
     code: "[ COACH // 03 ]",
     experienceYears: 15,
-    credentials: ["USAW Senior Coach", "Master of Biomechanics", "IPF Certified Referee"],
-    specialties: ["Olympic Snatch & Clean", "Barbell Velocity Profiling", "Spinal Stabilization"],
-    quote: "Technique is king. When your form is flawless, heavy iron moves effortlessly.",
-    bio: "David has dedicated 15 years to barbell science. He specializes in breaking plateaus for powerlifters and athletes through slow-motion kinematics and neuro-muscular firing drills.",
+    credentials: ["Senior Strength Coach", "Lifting Posture Expert", "Joint Safety Specialist"],
+    specialties: ["Safe Squat & Deadlift", "Back & Shoulder Health", "Building Real Strength"],
+    quote: "Focus on good form first. When you move well, lifting heavy feels easy and safe.",
+    bio: "David has 15 years of lifting experience. He is dedicated to helping members learn correct weightlifting techniques without neck or back pain.",
     image: "/images/trainer-david.jpg",
     stats: {
       clientsTransformed: 510,
-      personalBest: "260 kg Squat"
+      personalBest: "15 Years Experience"
     }
   },
   {
     id: "maya-patel",
     name: "Maya Patel",
-    role: "Director of Functional Movement & Recovery",
+    role: "Yoga & Stretching Coach",
     code: "[ COACH // 04 ]",
     experienceYears: 8,
-    credentials: ["FRC Mobility Specialist", "E-RYT 500 Yoga Alliance", "Sports Physio Fellow"],
-    specialties: ["Spinal Decompression", "Contrast Cold/Heat Protocol", "Fascial Release"],
-    quote: "True power is nothing without the joint integrity and longevity to sustain it.",
-    bio: "Maya merges traditional yogic somatic awareness with modern sports physiotherapy. She guides athletes through cold plunge recovery protocols, fascia unwinding, and corrective posture realignment.",
+    credentials: ["Certified Yoga Instructor", "Physical Mobility Coach", "Recovery Specialist"],
+    specialties: ["Gentle Stretching", "Back Pain Relief", "Cold Plunge & Sauna Guide"],
+    quote: "Resting your body and relaxing tight muscles is just as important as lifting weights.",
+    bio: "Maya teaches you how to release tight hips and shoulders, ease daily work stress, and use our cold plunge and sauna to feel refreshed.",
     image: "/images/trainer-maya.jpg",
     stats: {
       clientsTransformed: 290,
-      personalBest: "100% Injury-Free Retention"
+      personalBest: "8 Years Experience"
     }
   }
 ];

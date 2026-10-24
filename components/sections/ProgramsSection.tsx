@@ -2,25 +2,24 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Flame, Clock, User, ArrowRight, X, Dumbbell, Sparkles } from "lucide-react";
+import { Flame, Clock, User, ArrowRight } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import GlassCard from "@/components/ui/GlassCard";
 import Button from "@/components/ui/Button";
-import { programsData, Program } from "@/data/programs";
-import { useBooking } from "@/context/BookingContext";
+import { programsData } from "@/data/programs";
+import { useJoin } from "@/context/JoinContext";
 
 export default function ProgramsSection() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
-  const [activeModalProgram, setActiveModalProgram] = useState<Program | null>(null);
-  const { openJoinModal } = useBooking();
+  const { scrollToJoin } = useJoin();
 
   const categories = [
-    { id: "all", label: "ALL DISCIPLINES" },
-    { id: "strength", label: "STRENGTH & POWER" },
-    { id: "hiit", label: "METABOLIC & HIIT" },
-    { id: "hypertrophy", label: "HYPERTROPHY" },
-    { id: "mobility", label: "RECOVERY & FLOW" },
-    { id: "combat", label: "COMBAT & BOXING" },
+    { id: "all", label: "ALL WORKOUTS" },
+    { id: "strength", label: "STRENGTH & WEIGHTS" },
+    { id: "hiit", label: "CARDIO & FAT BURN" },
+    { id: "hypertrophy", label: "BODY TONING" },
+    { id: "mobility", label: "STRETCH & SAUNA" },
+    { id: "combat", label: "BOXING FITNESS" },
   ];
 
   const filteredPrograms =
@@ -37,14 +36,14 @@ export default function ProgramsSection() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
-            <SectionLabel label="DISCIPLINES & PROTOCOLS" tag="[ PROGRAMS ]" />
+            <SectionLabel label="OUR WORKOUTS" tag="[ PROGRAMS ]" />
             <h2 className="font-heading text-3xl sm:text-5xl font-black text-white mt-4 tracking-tight">
-              SCIENTIFIC TRAINING <br />
-              <span className="text-[#FFE600]">ENGINEERED FOR PEAK ADAPTATION.</span>
+              EXERCISE CLASSES <br />
+              <span className="text-[#FFE600]">FOR EVERY FITNESS GOAL.</span>
             </h2>
           </div>
-          <p className="text-white/60 text-sm max-w-md">
-            Whether your objective is raw barbell power, sub-12% body fat, or accelerated cellular recovery, our evidence-backed protocols deliver measurable results.
+          <p className="text-white/70 text-sm max-w-md">
+            Whether you want to build strong muscles, burn extra calories, or just relax and stretch, our coaches are ready to help you every step of the way.
           </p>
         </div>
 
@@ -116,7 +115,7 @@ export default function ProgramsSection() {
                     <h3 className="font-heading font-bold text-xl text-white group-hover:text-[#FFE600] transition-colors">
                       {program.title}
                     </h3>
-                    <p className="text-white/65 text-xs line-clamp-2 mt-1.5 leading-relaxed">
+                    <p className="text-white/70 text-xs line-clamp-2 mt-1.5 leading-relaxed">
                       {program.description}
                     </p>
                   </div>
@@ -132,158 +131,30 @@ export default function ProgramsSection() {
                       </span>
                     ))}
                   </div>
+
+                  <div className="text-xs text-white/60 flex items-center gap-1 pt-1 border-t border-white/5">
+                    <User size={13} className="text-[#FFE600]" />
+                    <span>Coach: {program.coach}</span>
+                  </div>
                 </div>
               </div>
 
-              {/* Bottom Buttons */}
-              <div className="p-6 pt-0 border-t border-white/5 flex items-center justify-between gap-3 mt-4">
-                <button
-                  onClick={() => setActiveModalProgram(program)}
-                  className="text-xs font-mono-tag text-white/70 hover:text-[#FFE600] flex items-center gap-1.5 transition-colors cursor-pointer"
-                >
-                  <span>VIEW DETAILS</span>
-                  <ArrowRight size={13} />
-                </button>
-
+              {/* Bottom Action */}
+              <div className="p-6 pt-0">
                 <Button
                   size="sm"
                   variant="primary"
-                  onClick={() => openJoinModal()}
-                  className="text-xs font-bold"
+                  onClick={() => scrollToJoin()}
+                  iconRight={<ArrowRight size={14} />}
+                  className="w-full text-xs font-bold"
                 >
-                  Join Program
+                  Join This Program
                 </Button>
               </div>
             </GlassCard>
           ))}
         </div>
-
-        {/* View All Programs Bar */}
-        <div className="mt-14 p-6 rounded-3xl bg-[#12120e] border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-4 text-center sm:text-left">
-            <div className="w-12 h-12 rounded-2xl bg-[#FFE600]/15 border border-[#FFE600]/30 flex items-center justify-center text-[#FFE600] shrink-0">
-              <Dumbbell size={24} />
-            </div>
-            <div>
-              <h4 className="font-heading font-bold text-white text-base">
-                Need a Custom Periodized Workout Routine?
-              </h4>
-              <p className="text-xs text-white/60">
-                Use our automated workout planner to generate your 3 to 5 day split instantly.
-              </p>
-            </div>
-          </div>
-          <Button
-            variant="secondary"
-            size="md"
-            href="/tools"
-            className="text-xs font-mono-tag tracking-wider shrink-0"
-          >
-            [ OPEN FITNESS LAB & TOOLS ]
-          </Button>
-        </div>
       </div>
-
-      {/* Program Details Modal */}
-      {activeModalProgram && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in">
-          <div
-            className="relative w-full max-w-2xl bg-[#0e0e0a] border border-[#FFE600]/30 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-y-auto max-h-[90vh]"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={() => setActiveModalProgram(null)}
-              className="absolute top-5 right-5 p-2 rounded-full bg-white/5 hover:bg-white/10 text-white/70 hover:text-white"
-            >
-              <X size={20} />
-            </button>
-
-            <div className="space-y-6">
-              <div>
-                <span className="font-mono-tag text-xs text-[#FFE600] font-bold">
-                  {activeModalProgram.tag} // {activeModalProgram.level.toUpperCase()}
-                </span>
-                <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-white mt-1">
-                  {activeModalProgram.title}
-                </h3>
-                <p className="text-sm text-white/70 mt-2 leading-relaxed">
-                  {activeModalProgram.description}
-                </p>
-              </div>
-
-              {/* Specs Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-center">
-                  <span className="text-[10px] font-mono-tag text-white/50 block">DURATION</span>
-                  <span className="font-heading font-bold text-white text-sm mt-0.5 block">{activeModalProgram.duration}</span>
-                </div>
-                <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-center">
-                  <span className="text-[10px] font-mono-tag text-white/50 block">BURN RATE</span>
-                  <span className="font-heading font-bold text-[#FFE600] text-sm mt-0.5 block">{activeModalProgram.caloriesBurn}</span>
-                </div>
-                <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-center">
-                  <span className="text-[10px] font-mono-tag text-white/50 block">INTENSITY</span>
-                  <span className="font-heading font-bold text-white text-sm mt-0.5 block">{activeModalProgram.level}</span>
-                </div>
-                <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-center">
-                  <span className="text-[10px] font-mono-tag text-white/50 block">LEAD COACH</span>
-                  <span className="font-heading font-bold text-white text-sm mt-0.5 block truncate">{activeModalProgram.coach}</span>
-                </div>
-              </div>
-
-              {/* Protocol breakdown */}
-              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
-                <span className="font-mono-tag text-xs text-[#FFE600] font-semibold block">
-                  BIOMECHANICAL METHODOLOGY:
-                </span>
-                <p className="text-xs text-white/80 leading-relaxed">
-                  {activeModalProgram.details}
-                </p>
-                <div className="pt-2 flex items-center gap-2 text-xs text-white/60">
-                  <Clock size={14} className="text-[#FFE600]" />
-                  <span>Schedule: <strong>{activeModalProgram.scheduleSlots}</strong></span>
-                </div>
-              </div>
-
-              {/* Key adaptions */}
-              <div>
-                <span className="font-mono-tag text-xs text-white/60 block mb-2">TARGET PHYSIOLOGICAL ADAPTATIONS:</span>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {activeModalProgram.focus.map((f, i) => (
-                    <div key={i} className="flex items-center gap-2 text-xs text-white/90 p-2 rounded-lg bg-white/5">
-                      <Sparkles size={13} className="text-[#FFE600] shrink-0" />
-                      <span>{f}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Actions */}
-              <div className="pt-2 flex items-center gap-4">
-                <Button
-                  size="md"
-                  variant="primary"
-                  className="flex-1 font-bold uppercase tracking-wider"
-                  onClick={() => {
-                    setActiveModalProgram(null);
-                    openJoinModal();
-                  }}
-                >
-                  Book Free Session for this Program
-                </Button>
-                <Button
-                  size="md"
-                  variant="secondary"
-                  href="/schedule"
-                  onClick={() => setActiveModalProgram(null)}
-                >
-                  View Schedule
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }

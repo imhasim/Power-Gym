@@ -5,7 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/shared/WhatsAppButton";
 import ScrollToTop from "@/components/shared/ScrollToTop";
-import { BookingProvider } from "@/context/BookingContext";
+import { JoinProvider } from "@/context/JoinContext";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space",
@@ -27,24 +27,22 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://powergym.fit"),
-  title: "POWER GYM — Build Power. Break Limits | Elite Training & Biomechanics",
+  title: "POWER GYM — Get Strong, Fit, and Healthy",
   description:
-    "Experience elite dark-aesthetic fitness training, Olympic equipment, certified master coaches, cold plunge recovery, and customized nutrition protocols.",
+    "Welcome to Power Gym. High quality gym equipment, friendly coaches, fun workouts, and clean recovery saunas to help you reach your goals.",
   keywords: [
     "Power Gym",
-    "Elite Gym",
-    "Strength Training",
-    "Olympic Weightlifting",
-    "CrossFit",
-    "Recovery Lounge",
-    "Cold Plunge",
+    "Gym",
+    "Weight Training",
+    "Fitness Workouts",
+    "Sauna and Cold Plunge",
     "Personal Trainer",
   ],
-  authors: [{ name: "Power Gym High Performance" }],
+  authors: [{ name: "Power Gym" }],
   openGraph: {
-    title: "POWER GYM — Build Power. Break Limits",
+    title: "POWER GYM — Get Strong, Fit, and Healthy",
     description:
-      "State-of-the-art gym with Olympic lifting platforms, HIIT arenas, certified CSCS coaches, and infrared sauna recovery.",
+      "Modern gym with free weights, cardio workouts, friendly personal coaches, and relaxing saunas.",
     url: "https://powergym.fit",
     siteName: "POWER GYM",
     images: [
@@ -77,16 +75,20 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} scroll-smooth antialiased`}
     >
-      <body className="min-h-screen bg-[#050505] text-white flex flex-col selection:bg-[#FFE600] selection:text-black">
-        <BookingProvider>
+      <body
+        suppressHydrationWarning
+        className="min-h-screen bg-[#050505] text-white flex flex-col selection:bg-[#FFE600] selection:text-black"
+      >
+        <JoinProvider>
           <Navbar />
           <main className="flex-1 w-full">{children}</main>
           <Footer />
           <WhatsAppButton />
           <ScrollToTop />
-        </BookingProvider>
+        </JoinProvider>
       </body>
     </html>
   );

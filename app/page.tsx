@@ -1,17 +1,12 @@
 import React from "react";
 import HeroSection from "@/components/sections/HeroSection";
-import StatsStrip from "@/components/sections/StatsStrip";
-import AboutSection from "@/components/sections/AboutSection";
+import AboutStatsSection from "@/components/sections/AboutStatsSection";
 import ProgramsSection from "@/components/sections/ProgramsSection";
-import SystemsSection from "@/components/sections/SystemsSection";
-import TrainersSection from "@/components/sections/TrainersSection";
 import PlansSection from "@/components/sections/PlansSection";
-import TransformationsSection from "@/components/sections/TransformationsSection";
-import ScheduleSection from "@/components/sections/ScheduleSection";
-import ToolsSection from "@/components/sections/ToolsSection";
-import TestimonialsSection from "@/components/sections/TestimonialsSection";
-import TrialCtaSection from "@/components/sections/TrialCtaSection";
-import FaqSection from "@/components/sections/FaqSection";
+import TrainersSection from "@/components/sections/TrainersSection";
+import BmiCalculator from "@/components/sections/BmiCalculator";
+import JoinSection from "@/components/sections/JoinSection";
+import MotivationBanner from "@/components/ui/MotivationBanner";
 
 export default function Home() {
   return (
@@ -19,41 +14,32 @@ export default function Home() {
       {/* 1. Hero */}
       <HeroSection />
 
-      {/* 2. Stats Strip */}
-      <StatsStrip />
+      {/* Motivation Line 1 */}
+      <MotivationBanner quote="Start today, and your body will thank you later." />
 
-      {/* 3. About Section */}
-      <AboutSection />
+      {/* 2. About + Stats */}
+      <AboutStatsSection />
 
-      {/* 4. Programs */}
+      {/* 3. Programs */}
       <ProgramsSection />
 
-      {/* 5. Systems Section (Tree style) */}
-      <SystemsSection />
+      {/* Motivation Line 2 */}
+      <MotivationBanner quote="Do not wait for the perfect time. Begin now." />
 
-      {/* 6. Trainers */}
-      <TrainersSection />
-
-      {/* 7. Membership Plans */}
+      {/* 4. Membership Plans */}
       <PlansSection />
 
-      {/* 8. Transformations Gallery */}
-      <TransformationsSection />
+      {/* 5. Trainers */}
+      <TrainersSection />
 
-      {/* 9. Live Schedule */}
-      <ScheduleSection />
+      {/* Motivation Line 3 */}
+      <MotivationBanner quote="Every small effort you make today brings a big change tomorrow." />
 
-      {/* 10. Fitness Tools & Calculators */}
-      <ToolsSection />
+      {/* 6. Simple BMI Calculator */}
+      <BmiCalculator />
 
-      {/* 11. Testimonials */}
-      <TestimonialsSection />
-
-      {/* 12. Free Trial Pass CTA */}
-      <TrialCtaSection />
-
-      {/* 13. FAQ */}
-      <FaqSection />
+      {/* 7. Join Form */}
+      <JoinSection />
     </div>
   );
 }
