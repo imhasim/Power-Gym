@@ -1,16 +1,23 @@
 "use client";
 
 import React, { useState } from "react";
-import { Check, X, ArrowRight } from "lucide-react";
+import { Check, X, ArrowRight, MessageCircle } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import GlassCard from "@/components/ui/GlassCard";
 import Button from "@/components/ui/Button";
 import { plansData } from "@/data/plans";
-import { useJoin } from "@/context/JoinContext";
+import { GYM_CONFIG } from "@/lib/config";
 
 export default function PlansSection() {
   const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("monthly");
-  const { scrollToJoin } = useJoin();
+
+  const handleChoosePlan = (planName: string) => {
+    const message = `Hi Power Gym, I am interested in the ${planName} plan.`;
+    window.open(
+      `https://wa.me/${GYM_CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
+  };
 
   return (
     <section id="plans" className="py-24 relative overflow-hidden bg-[#070705] cyber-grid">
@@ -150,10 +157,10 @@ export default function PlansSection() {
                     variant={isPro ? "primary" : "secondary"}
                     size="lg"
                     className="w-full font-bold uppercase tracking-wider text-xs"
-                    onClick={() => scrollToJoin(plan.name)}
-                    iconRight={<ArrowRight size={16} />}
+                    onClick={() => handleChoosePlan(plan.name)}
+                    iconRight={<MessageCircle size={16} />}
                   >
-                    Select {plan.name}
+                    Choose Plan
                   </Button>
                   <p className="text-[10px] text-center text-white/50 mt-2 font-mono-tag">
                     3-DAY MONEY-BACK GUARANTEE

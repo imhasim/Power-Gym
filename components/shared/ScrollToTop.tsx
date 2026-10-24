@@ -42,7 +42,7 @@ export default function ScrollToTop() {
     circumference - (scrollProgress / 100) * circumference;
 
   return (
-    <div className="fixed bottom-6 right-6 z-40">
+    <div className="fixed bottom-22 right-6 z-40">
       <button
         onClick={scrollToTop}
         className="relative flex items-center justify-center w-12 h-12 rounded-full bg-[#141410] border border-white/10 text-[#FFE600] hover:scale-110 active:scale-95 transition-all shadow-xl hover:border-[#FFE600]/40 group"

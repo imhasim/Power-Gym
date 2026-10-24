@@ -2,11 +2,12 @@
 
 import React from "react";
 import Image from "next/image";
-import { ArrowRight, Flame, Shield, Activity, Dumbbell } from "lucide-react";
+import { ArrowRight, Flame, Shield, Activity, Dumbbell, Phone } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Chip from "@/components/ui/Chip";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { useJoin } from "@/context/JoinContext";
+import { GYM_CONFIG } from "@/lib/config";
 
 export default function HeroSection() {
   const { scrollToJoin } = useJoin();
@@ -20,13 +21,13 @@ export default function HeroSection() {
       {/* Clean Corner Info */}
       <div className="hidden lg:block absolute top-28 left-8 text-[11px] font-mono-tag text-white/40 space-y-1">
         <p>/ POWER GYM MAIN FLOOR</p>
-        <p>/ SECTOR 4, NEW DELHI</p>
-        <p>/ CLEAN, SAFE & AIR CONDITIONED</p>
+        <p>/ SIKAR, RAJASTHAN</p>
+        <p>/ OPP. RAJMEWAR HOSPITAL</p>
       </div>
 
       <div className="hidden lg:block absolute top-28 right-8 text-[11px] font-mono-tag text-right text-white/40 space-y-1">
-        <p>[ OPEN 24 HOURS ]</p>
-        <p>[ FREE LOCKERS & SHOWERS ]</p>
+        <p>[ MON–SAT 5AM–10PM ]</p>
+        <p>[ SUN 6AM–12PM ]</p>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
@@ -61,6 +62,14 @@ export default function HeroSection() {
               >
                 Claim 3-Day Free Pass
               </Button>
+
+              <a
+                href={`tel:${GYM_CONFIG.PHONE_LINK}`}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-white/15 bg-white/5 hover:bg-[#FFE600] text-white hover:text-black transition-all text-sm font-semibold tracking-wider"
+              >
+                <Phone size={16} className="text-[#FFE600]" />
+                <span>Call Now: {GYM_CONFIG.PHONE_DISPLAY}</span>
+              </a>
 
               <Button
                 size="lg"

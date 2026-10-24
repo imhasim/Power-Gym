@@ -2,9 +2,10 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Dumbbell, MapPin, Clock, ArrowRight, Check } from "lucide-react";
+import { Dumbbell, MapPin, Clock, ArrowRight, Check, Phone, ExternalLink } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { useJoin } from "@/context/JoinContext";
+import { GYM_CONFIG } from "@/lib/config";
 
 export default function Footer() {
   const [newsletterEmail, setNewsletterEmail] = useState("");
@@ -121,7 +122,7 @@ export default function Footer() {
           {/* Gym Hours & Location */}
           <div className="space-y-3">
             <span className="font-mono-tag text-xs font-bold text-[#FFE600] tracking-widest">
-              OPERATING HOURS
+              OPERATING HOURS & CONTACT
             </span>
             <div className="space-y-2.5 text-xs text-white/70">
               <div className="flex items-start gap-2">
@@ -139,11 +140,34 @@ export default function Footer() {
                 </div>
               </div>
               <div className="flex items-start gap-2 pt-1">
+                <Phone size={15} className="text-[#FFE600] shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-semibold text-white">Phone:</p>
+                  <a
+                    href={`tel:${GYM_CONFIG.PHONE_LINK}`}
+                    className="text-[#FFE600] hover:underline font-semibold"
+                  >
+                    {GYM_CONFIG.PHONE_DISPLAY}
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-start gap-2 pt-1">
                 <MapPin size={15} className="text-[#FFE600] shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold text-white">Facility Address:</p>
-                  <p>Plot 42, Performance Way, Sector 4, New Delhi</p>
+                  <p className="font-semibold text-white">Address:</p>
+                  <p className="leading-relaxed">{GYM_CONFIG.ADDRESS}</p>
                 </div>
+              </div>
+              <div className="pt-2">
+                <a
+                  href={GYM_CONFIG.MAP_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-[#FFE600] hover:bg-[#FFE600] hover:text-black font-mono-tag transition-all"
+                >
+                  <span>Get Directions</span>
+                  <ExternalLink size={12} />
+                </a>
               </div>
             </div>
           </div>

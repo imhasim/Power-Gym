@@ -104,7 +104,7 @@ export default function AboutStatsSection() {
           </div>
           <div className="hidden sm:block text-right">
             <span className="font-mono-tag text-xs text-white/40 block">
-              / SECTOR 4, NEW DELHI
+              / SIKAR, RAJASTHAN
             </span>
             <span className="font-mono-tag text-xs text-[#FFE600] font-semibold">
               CLEAN & SPACIOUS FITNESS CLUB

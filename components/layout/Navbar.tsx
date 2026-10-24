@@ -2,9 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Dumbbell, ArrowRight } from "lucide-react";
+import { Menu, X, Dumbbell, ArrowRight, Phone } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { useJoin } from "@/context/JoinContext";
+import { GYM_CONFIG } from "@/lib/config";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -67,8 +68,16 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Right Action Button */}
-          <div className="hidden sm:flex items-center gap-3">
+          {/* Right Action Buttons */}
+          <div className="hidden sm:flex items-center gap-2.5">
+            <a
+              href={`tel:${GYM_CONFIG.PHONE_LINK}`}
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-white/15 bg-white/5 hover:bg-[#FFE600] text-white hover:text-black transition-all text-xs font-mono-tag font-bold tracking-wider"
+              aria-label="Call gym phone number"
+            >
+              <Phone size={13} className="text-[#FFE600]" />
+              <span>CALL NOW</span>
+            </a>
             <Button
               variant="primary"
               size="sm"
@@ -110,7 +119,14 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="pt-2 border-t border-white/10">
+          <div className="pt-2 border-t border-white/10 space-y-2">
+            <a
+              href={`tel:${GYM_CONFIG.PHONE_LINK}`}
+              className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-white/15 bg-white/5 text-white hover:bg-[#FFE600] hover:text-black font-mono-tag font-bold text-xs uppercase tracking-wider transition-all"
+            >
+              <Phone size={14} className="text-[#FFE600]" />
+              <span>Call Now: {GYM_CONFIG.PHONE_DISPLAY}</span>
+            </a>
             <Button
               variant="primary"
               size="md"
