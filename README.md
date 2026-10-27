@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏋️ Power Gym Website
 
-## Getting Started
+A premium, dark-themed website for **Power Gym**, with a glowing yellow accent, smooth animations and a modern look. It is built fully on the frontend, so no backend is needed.
 
-First, run the development server:
+🔗 **Live Demo:** [power-gym-ten.vercel.app](https://power-gym-ten.vercel.app/)
+📦 **GitHub Repo:** [github.com/imhasim/Power-Gym](https://github.com/imhasim/Power-Gym)
+
+---
+
+## ✨ Features
+
+- Cinematic hero section with floating feature chips
+- Motivation lines between sections
+- About section with live stats (members, trainers, years, classes)
+- Programs: Strength, Cardio, Weight Loss, Yoga, Zumba and Personal Training
+- Membership plans: Basic, Pro and Elite
+- Trainers section
+- BMI calculator
+- Join / Free Trial form with validation
+- WhatsApp connection: the form opens WhatsApp with a ready-made message
+- Floating WhatsApp button and a "Call Now" button
+- Contact details with address, timings, Google Map and "Get Directions"
+- Fully responsive (mobile, tablet and desktop)
+
+## 🛠️ Tech Stack
+
+- [Next.js](https://nextjs.org/) (App Router)
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Deployed on [Vercel](https://vercel.com/)
+
+## 🚀 Getting Started
+
+Make sure you have [Node.js](https://nodejs.org/) installed.
 
 ```bash
+# 1. Clone the repo
+git clone https://github.com/imhasim/Power-Gym.git
+
+# 2. Go to the project folder
+cd Power-Gym
+
+# 3. Install dependencies
+npm install
+
+# 4. Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the website.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🏗️ Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## ✏️ How to Change Contact Details
 
-To learn more about Next.js, take a look at the following resources:
+Phone number, WhatsApp number, address, timings and map link are stored in one config file (for example `lib/config.ts`). Change them there once, and the whole website updates.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🌐 Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project is deployed on Vercel. Every time you push new code to the `main` branch on GitHub, Vercel updates the live website automatically.
 
-## Deploy on Vercel
+```bash
+git add .
+git commit -m "Your update message"
+git push
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📍 Contact
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Power Gym**
+Fatehpur Road, opposite Rajmewar Hospital, Mohalla Vapariyan, Roshanganj Mohalla, Sikar, Rajasthan 332001
+📞 +91 90240 76766
+
+## 👨‍💻 Author
+
+Made by [@imhasim](https://github.com/imhasim)
+
+## 📄 License
+
+This project is licensed under the MIT License.

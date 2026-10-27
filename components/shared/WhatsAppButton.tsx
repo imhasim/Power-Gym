@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { MessageCircle, X } from "lucide-react";
-import { GYM_CONFIG } from "@/lib/config";
+import { WHATSAPP_NUMBER } from "@/lib/config";
 
 export default function WhatsAppButton() {
   const [showTooltip, setShowTooltip] = useState(false);
@@ -10,7 +10,7 @@ export default function WhatsAppButton() {
   const message = encodeURIComponent(
     "Hi Power Gym, I want to know more about membership."
   );
-  const waUrl = `https://wa.me/${GYM_CONFIG.WHATSAPP_NUMBER}?text=${message}`;
+  const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
 
   return (
     <div className="fixed bottom-6 right-6 z-40 flex items-center group">
